@@ -2,10 +2,8 @@ import datetime
 
 class BikeRental:
     def __init__(self, stock=0):
-        """
-        Our constructor class that instantiates bike rental shop.
-        """
         self.stock = stock
+
 
     def displaystock(self):
         """
@@ -13,6 +11,7 @@ class BikeRental:
         """
         print(f"We have currently {self.stock} bikes available to rent.")
         return self.stock
+
 
     def rentBikeOnHourlyBasis(self, n):
         """
@@ -22,19 +21,20 @@ class BikeRental:
         if n <= 0:
             print("Number of bikes should be positive!")
             return None
-        # do not rent bike is stock is less than requested bikes
+        # stock is less than requested bikes
         elif n > self.stock:
             print(f"Sorry! We have currently {self.stock} bikes available to rent.")
             return None
-        # rent the bikes  
+        # rent bike
         else:
             now = datetime.datetime.now()
             print(f"You have rented a {n} bike(s) on hourly basis today at {now.hour} hours.")
             print("You will be charged 5€ for each hour per bike.")
-            print("We hope that you enjoynour service.")
+            print("We hope that you enjoy our service.")
 
             self.stock -= n
             return now
+
 
     def rentBikeOnDailyBasis(self, n):
         """
@@ -55,6 +55,7 @@ class BikeRental:
             
             return now
 
+
     def rentBikeOnWeeklyBasis(self, n):
         """
         Rents a bike on weekly basis to a customer.
@@ -73,6 +74,8 @@ class BikeRental:
             self.stock -= n
 
             return now
+
+
 
     def returnBike(self, request):
         """
@@ -115,6 +118,7 @@ class BikeRental:
             return None
 
 
+
 class Customer:
     def __init__(self):
         """
@@ -124,6 +128,7 @@ class Customer:
         self.rentalBasis = 0
         self.rentalTime = 0
         self.bill = 0
+
 
     def requestBike(self):
         """
@@ -144,6 +149,7 @@ class Customer:
             self.bikes = bikes
         return self.bikes
     
+
     def returnBike(self):
         """
         Allows customers to return their bikes to the rental shop.
